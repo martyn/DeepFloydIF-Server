@@ -8,12 +8,12 @@ RUN pip3 install deepfloyd_if==1.0.2rc0
 RUN pip3 install flask xformers==0.0.16
 RUN pip3 install git+https://github.com/openai/CLIP.git --no-deps
 
-RUN git clone https://github.com/martyn/DeepFloydIF-Server /IF/
-
 RUN echo 'echo "Welcome to DeepFloyd IF runpod."' >> /root/.bashrc
 RUN echo 'echo ""' >> /root/.bashrc
 RUN echo 'echo "You need to login to huggingface with \`huggingface-cli login\`."' >> /root/.bashrc
 RUN echo 'echo "Then \`./generate.sh \"An app logo of featuring an apple tree\"\`"' >> /root/.bashrc
+
+RUN git clone https://github.com/martyn/DeepFloydIF-Server /IF/
 WORKDIR /IF
 RUN mkdir /IF/output
 
