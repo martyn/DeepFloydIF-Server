@@ -19,7 +19,7 @@ def main(args):
         payload = {'stage': stage, 'prompt': prompt}
 
         # Make a POST request
-        response = requests.post('http://localhost:5000/generate_image', files=payload)
+        response = requests.post('http://localhost:5000/generate_image', data=payload)
 
         # Check if the request was successful
         if response.status_code == 200:
