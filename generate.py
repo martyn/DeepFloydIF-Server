@@ -1,4 +1,4 @@
-mport os
+import os
 import argparse
 import random
 import string
