@@ -12,6 +12,9 @@ if_I = None
 if_II = None
 t5 = None
 
+@app.route('/', methods=['GET'])
+def index():
+    return ""
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
     stage = int(request.form.get('stage'))
