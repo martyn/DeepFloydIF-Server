@@ -34,7 +34,7 @@ for ((i=0; i<$num_iterations; i++))
 do
   hex=$(openssl rand -hex 3) # Generate a 3-byte (6 characters) random hexadecimal number
   temp_file=$(mktemp) # Create a temporary file
-  if ! curl -f -s -S -X POST -F "stage=$stage" -F "prompt=$prompt" http://localhost:5000/generate_image -o $temp_file; then
+  if ! curl -f -s -S -X POST -F "stage=$stage" -F "prompt=$prompt" http://localhost:5001/generate_image -o $temp_file; then
     echo "Error: curl command failed. Here is the server response:"
     cat $temp_file
     rm $temp_file # Remove the temporary file
