@@ -27,7 +27,7 @@ def generate_image():
         from deepfloyd_if.modules.t5 import T5Embedder
         from deepfloyd_if.pipelines import dream
         if_I = IFStageI('IF-I-XL-v1.0', device=device)
-        if_II = IFStageII('IF-II-L-v1.0', device=device)
+        #if_II = IFStageII('IF-II-L-v1.0', device=device)
         #if_III = StableStageIII('stable-diffusion-x4-upscaler', device=device)
         t5 = T5Embedder(device=device)
 
@@ -53,13 +53,13 @@ def generate_image():
         },
     )
 
-    byte_arr = io.BytesIO()
-    img.save(byte_arr, format='PNG')
-    byte_arr = byte_arr.getvalue()
     stage_str = "II"
     if stage == 1:
         stage_str = "I"
-    byte_arr = stream_image(result[stage_str][0])
+    byte_arr = io.BytesIO()
+    img = result[stage_str][0]
+    img.save(byte_arr, format='PNG')
+    byte_arr = byte_arr.getvalue()
 
     print(f"Image created: {image_path}")
 
@@ -70,4 +70,4 @@ def generate_image():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5001)
