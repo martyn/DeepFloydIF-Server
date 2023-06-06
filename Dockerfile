@@ -10,8 +10,8 @@ RUN pip3 install git+https://github.com/openai/CLIP.git --no-deps
 
 RUN echo 'echo "Welcome to DeepFloyd IF runpod."' >> /root/.bashrc
 RUN echo 'echo ""' >> /root/.bashrc
-RUN echo 'echo "You need to login to huggingface with \`huggingface-cli login\`."' >> /root/.bashrc
-RUN echo 'echo "Then \`./generate.sh \"An app logo of featuring an apple tree\"\`"' >> /root/.bashrc
+RUN echo 'echo "1. Login to huggingface with \`huggingface-cli login\`."' >> /root/.bashrc
+RUN echo 'echo "2. Run \`./generate.sh \"An app logo of featuring an apple tree\"\`"' >> /root/.bashrc
 
 RUN git clone https://github.com/martyn/DeepFloydIF-Server /IF/
 WORKDIR /IF
