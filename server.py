@@ -4,6 +4,9 @@ import glob
 import io
 import os
 import torch
+from deepfloyd_if.modules import IFStageI, IFStageII, StableStageIII
+from deepfloyd_if.modules.t5 import T5Embedder
+from deepfloyd_if.pipelines import dream
 
 app = Flask(__name__)
 
@@ -23,11 +26,8 @@ def generate_image():
     prompt = request.form.get('prompt')
     count=1
     if if_I is None:
-        from deepfloyd_if.modules import IFStageI, IFStageII, StableStageIII
-        from deepfloyd_if.modules.t5 import T5Embedder
-        from deepfloyd_if.pipelines import dream
         if_I = IFStageI('IF-I-XL-v1.0', device=device)
-        #if_II = IFStageII('IF-II-L-v1.0', device=device)
+        if_II = IFStageII('IF-II-L-v1.0', device=device)
         #if_III = StableStageIII('stable-diffusion-x4-upscaler', device=device)
         t5 = T5Embedder(device=device)
 
