@@ -18,6 +18,7 @@ def index():
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
+    global if_I, if_II, if_III, t5
     stage = int(request.form.get('stage'))
     prompt = request.form.get('prompt')
     count=1
@@ -32,7 +33,7 @@ def generate_image():
 
 
     result = dream(
-        t5=t5, if_I=if_I, if_II=if_II, if_III=None,
+        t5=t5, if_I=if_I, if_II=if_II, if_III=if_III,
         disable_watermark=True,
         negative_prompt="stupid, lame",
         style_prompt="very profound, deep, inspiring",
@@ -55,7 +56,10 @@ def generate_image():
     byte_arr = io.BytesIO()
     img.save(byte_arr, format='PNG')
     byte_arr = byte_arr.getvalue()
-    byte_arr = stream_image(result["III"][0])
+    stage_str = "II"
+    if stage == 1:
+        stage_str = "I"
+    byte_arr = stream_image(result[stage_str][0])
 
     print(f"Image created: {image_path}")
 
