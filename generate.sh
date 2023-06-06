@@ -33,8 +33,12 @@ mkdir -p $output_path
 for ((i=0; i<$num_iterations; i++))
 do
   hex=$(openssl rand -hex 3) # Generate a 3-byte (6 characters) random hexadecimal number
-  if ! curl -f -s -S -X POST -F "stage=$stage" -F "prompt=$prompt" http://localhost:5000/generate_image -o "$output_path/apple-$hex.png"; then
-    echo "Error: curl command failed. Please check your server status or the provided arguments."
+  temp_file=$(mktemp) # Create a temporary file
+  if ! curl -f -s -S -X POST -F "stage=$stage" -F "prompt=$prompt" http://localhost:5000/generate_image -o $temp_file; then
+    echo "Error: curl command failed. Here is the server response:"
+    cat $temp_file
+    rm $temp_file # Remove the temporary file
     exit 1
   fi
+  mv $temp_file "$output_path/image-$hex.png" # Move the temporary file to the final location
 done
