@@ -15,6 +15,7 @@ t5 = None
 @app.route('/', methods=['GET'])
 def index():
     return ""
+
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
     stage = int(request.form.get('stage'))
@@ -65,4 +66,4 @@ def generate_image():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
