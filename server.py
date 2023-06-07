@@ -4,21 +4,19 @@ import glob
 import io
 import os
 import torch
+from flask_autoindex import AutoIndex
 from deepfloyd_if.modules import IFStageI, IFStageII, StableStageIII
 from deepfloyd_if.modules.t5 import T5Embedder
 from deepfloyd_if.pipelines import dream
 
 app = Flask(__name__)
+AutoIndex(app, browse_root='output/')
 
 device="cuda:0"
 if_I = None
 if_II = None
 if_III = None
 t5 = None
-
-@app.route('/', methods=['GET'])
-def index():
-    return ""
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
@@ -69,5 +67,5 @@ def generate_image():
 
 
 if __name__ == '__main__':
-    port=5001
+    port=5000
     app.run(host='0.0.0.0', port=port)
