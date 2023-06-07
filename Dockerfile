@@ -6,7 +6,7 @@ FROM runpod/pytorch:3.10-1.13.1-116-devel
 #RUN cd /IF && pip3 install -r requirements.txt
 RUN pip3 install deepfloyd_if==1.0.2rc0
 RUN pip3 install flask xformers==0.0.16
-RUN pip3 install protobuf==4.23.2
+RUN pip3 install protobuf==3.20.0
 RUN pip3 install git+https://github.com/openai/CLIP.git --no-deps
 
 RUN echo 'echo "Welcome to DeepFloyd IF runpod."' >> /root/.bashrc

@@ -62,8 +62,6 @@ def generate_image():
     img.save(byte_arr, format='PNG')
     byte_arr = byte_arr.getvalue()
 
-    print(f"Image created: {image_path}")
-
     return send_file(
         io.BytesIO(byte_arr),
         mimetype='image/png'
