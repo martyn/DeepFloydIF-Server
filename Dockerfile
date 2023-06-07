@@ -16,6 +16,7 @@ RUN echo 'echo "2. Run \`python3 ./generate.py \"An app logo featuring an apple 
 RUN git clone https://github.com/martyn/DeepFloydIF-Server /IF/
 
 WORKDIR /IF
+RUN mkdir /IF/models && mv /root/.cache /IF/models/.cache && ln -sf /IF/models/.cache /root/
 RUN mkdir /IF/output
 
 CMD ["python3", "-u", "server.py"]
