@@ -13,6 +13,7 @@ app = Flask(__name__)
 device="cuda:0"
 if_I = None
 if_II = None
+if_III = None
 t5 = None
 
 @app.route('/', methods=['GET'])
