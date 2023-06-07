@@ -2,8 +2,11 @@
 
 This is a simple DeepFloyd IF server.
 
-`generate.py` - used to generate images from the server
-`server.py` - starts the server on port 5000
+
+## Contents
+
+* `generate.py` - used to generate images from the server
+* `server.py` - starts the server on port 5000
 
 
 ## Requirements
@@ -12,11 +15,11 @@ This is a simple DeepFloyd IF server.
 
 ## Links
 
-## Runpod
+### Runpod
 
 [https//runpod.io/gsc?template=2xrwg3s0gx&ref=n5grigur](https//runpod.io/gsc?template=2xrwg3s0gx&ref=n5grigur)
 
-## LinkedIn article
+### LinkedIn article
 
 [https://www.linkedin.com/pulse/state-art-ai-logo-generation-deepfloyd-martyn-garcia](https://www.linkedin.com/pulse/state-art-ai-logo-generation-deepfloyd-martyn-garcia)
 
