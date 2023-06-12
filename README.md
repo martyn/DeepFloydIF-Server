@@ -1,5 +1,6 @@
 # DeepFloyd IF server
 
+![DeepFloyd IF server logo](./deepfloyd-if-server-logo.png)
 This is a simple DeepFloyd IF server.
 
 
